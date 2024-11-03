@@ -1,6 +1,6 @@
 from huggingface_hub import snapshot_download
 import huggingface_hub
-huggingface_hub.login("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") # token 从 https://huggingface.co/settings/tokens 获取
+huggingface_hub.login("") # token 从 https://huggingface.co/settings/tokens 获取
 
 
 
