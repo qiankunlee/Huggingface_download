@@ -1,23 +1,8 @@
-# from datasets import load_dataset
-
-# ds = load_dataset("Ghaser/Wikipedia-Knowledge-2M",cache_dir="huggingface/dataset")
 import os
-from datasets import load_dataset
-from transformers import AutoModelForCausalLM, AutoTokenizer
-
-# 设置你想要下载的模型和数据集的名称列表
-
-dataset_names = ['Ghaser/Wikipedia-Knowledge-2M']
-
-save_directory = "./downloaded_datasets"
-# 创建一个函数来下载数据集
-def download_datasets(dataset_names, save_directory):
-    os.makedirs(save_directory, exist_ok=True)
-    for dataset_name in dataset_names:
-        dataset = load_dataset(dataset_name)
-        dataset_save_path = os.path.join(save_directory, dataset_name.replace('/', '_'))
-        dataset.save_to_disk(dataset_save_path)
-        print(f"Dataset {dataset_name} downloaded and saved to {dataset_save_path}.")
-
-# 调用函数下载模型和数据集
-download_datasets(dataset_names,save_directory)
+from huggingface_hub import snapshot_download
+ 
+# 使用cache_dir参数，将模型/数据集保存到指定“本地路径”
+snapshot_download(repo_id="ibrahimhamamci/CT-RATE", repo_type="dataset",
+                  cache_dir="./down",
+                  local_dir_use_symlinks=False, resume_download=True,
+                  token='**')
