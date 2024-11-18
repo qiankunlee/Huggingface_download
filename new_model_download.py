@@ -3,7 +3,7 @@ import huggingface_hub
 huggingface_hub.login("") # token 从 https://huggingface.co/settings/tokens 获取
 
 
-
+os.environ['HF_ENDPOINT']='https://hf-mirror.com'
 
 snapshot_download(
   repo_id="meta-llama/Llama-2-70b-hf",
